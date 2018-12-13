@@ -2,7 +2,7 @@ package com.cengiz.bursali.wunderlist.api.constant;
 
 public class WarningMessage {
 
-    private WarningMessage(){
+    private WarningMessage() {
 
     }
 

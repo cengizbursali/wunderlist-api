@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class WunderException extends RuntimeException{
+public class WunderAppException extends RuntimeException {
     private ExceptionInfo exceptionInfo;
 }
