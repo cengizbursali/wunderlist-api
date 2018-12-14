@@ -53,7 +53,7 @@ public class WunderControllerTest {
     }
 
     @Test
-    public void updateWundor() throws Exception {
+    public void updateWunder() throws Exception {
         final WunderUpdateRequest wunderUpdateRequest = new WunderUpdateRequest("sprng boot rest api", "using rest template");
         final UUID wunderId = UUID.randomUUID();
 
