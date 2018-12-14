@@ -9,9 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Api(value = "UserController")
@@ -22,7 +21,7 @@ public class UserController {
     private final UserService userService;
 
     @ApiOperation("Register user")
-    @RequestMapping(method = RequestMethod.POST, path = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> register(@RequestBody UserRegisterRequest userRegisterRequest) {
         final String userId = userService.register(userRegisterRequest);
@@ -30,7 +29,7 @@ public class UserController {
     }
 
     @ApiOperation("Login user")
-    @RequestMapping(method = RequestMethod.POST, path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> login(@RequestBody UserLoginRequest userLoginRequest) {
         final String userId = userService.login(userLoginRequest);
         return new ResponseEntity<>(userId, HttpStatus.OK);

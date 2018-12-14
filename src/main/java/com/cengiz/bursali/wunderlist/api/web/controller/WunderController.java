@@ -23,7 +23,7 @@ public class WunderController {
     private final WunderService wunderService;
 
     @ApiOperation("Create wunder")
-    @RequestMapping(method = RequestMethod.POST, value = "/wunders", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/wunders", consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<String> create(@RequestBody WunderCreateRequest wunderCreateRequest) {
         final String wunderId = wunderService.create(wunderCreateRequest);
@@ -31,21 +31,21 @@ public class WunderController {
     }
 
     @ApiOperation("Update wunder")
-    @RequestMapping(method = RequestMethod.PUT, path = "/wunders/{id}")
+    @PutMapping(path = "/wunders/{id}")
     public ResponseEntity<String> update(@PathVariable("id") UUID id, @RequestBody WunderUpdateRequest wunderUpdateRequest) {
         final String wunderId = wunderService.update(id, wunderUpdateRequest);
         return new ResponseEntity<>(wunderId, HttpStatus.OK);
     }
 
     @ApiOperation("Delete wunder")
-    @RequestMapping(method = RequestMethod.DELETE, path = "/wunders/{id}")
+    @DeleteMapping(path = "/wunders/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable("id") UUID id) {
         wunderService.delete(id);
     }
 
     @ApiOperation("List of wunders")
-    @RequestMapping(method = RequestMethod.GET, path = "/wunders/{id}")
+    @GetMapping(path = "/wunders/{id}")
     public List<WunderResponse> getAll(@PathVariable("id") String id) {
         return wunderService.getWunderResponseList(id);
     }
