@@ -1,10 +1,10 @@
 package com.cengiz.bursali.wunderlist.api.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public class WunderAppException extends RuntimeException {
-    private ExceptionInfo exceptionInfo;
+    private final ExceptionInfo exceptionInfo;
 }
