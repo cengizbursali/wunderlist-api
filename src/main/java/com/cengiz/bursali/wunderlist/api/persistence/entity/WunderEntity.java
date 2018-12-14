@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "wunder", schema = "adm")
+@Table(name = "wunder", schema = "myschema")
 public class WunderEntity {
 
     @Id
