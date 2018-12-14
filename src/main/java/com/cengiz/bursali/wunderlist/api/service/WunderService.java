@@ -59,8 +59,8 @@ public class WunderService {
         wunderRespository.delete(id.toString());
     }
 
-    public List<WunderResponse> getWunderResponseList(UUID id) {
-        final List<WunderEntity> wunderEntityList = wunderRespository.findAll(Example.of(WunderEntity.builder().createdByUser(id.toString()).build()));
+    public List<WunderResponse> getWunderResponseList(String id) {
+        final List<WunderEntity> wunderEntityList = wunderRespository.findAll(Example.of(WunderEntity.builder().createdByUser(id).build()));
 
         return wunderEntityList.parallelStream().map(this::convert).collect(Collectors.toList());
     }

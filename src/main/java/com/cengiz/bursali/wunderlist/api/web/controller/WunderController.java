@@ -46,7 +46,7 @@ public class WunderController {
 
     @ApiOperation("List of wunders")
     @RequestMapping(method = RequestMethod.GET, path = "/wunders/{id}")
-    public List<WunderResponse> getAll(@PathVariable("id") UUID id) {
+    public List<WunderResponse> getAll(@PathVariable("id") String id) {
         return wunderService.getWunderResponseList(id);
     }
 }
