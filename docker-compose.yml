@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  postgresql:
+    restart: always
+    image: sameersbn/postgresql:10
+    ports:
+      - 5432:5432
+    environment:
+      - DB_USER=myuser
+      - DB_PASS=mypass
+      - DB_NAME=postgis_test
+    volumes:
+      - /var/lib/postgresql:/var/lib/postgresql
+
+  wunderlist-api:
+    image: cengizbursali/wunderlist-api:latest
+    container_name: wunderlist-api
+    restart: always
+    ports:
+      - 8080:8080
+    deploy:
+      resources:
+        limits:
+          cpus: '0.40'
+          memory: 200M
+    depends_on:
+      - postgresql
