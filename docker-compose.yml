@@ -10,7 +10,7 @@ services:
     environment:
       - DB_USER=myuser
       - DB_PASS=mypass
-      - DB_NAME=postgis_test
+      - DB_NAME=mydatabase
 
   wunderlist-api:
     image: cengizbursali/wunderlist-api:latest
